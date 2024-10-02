@@ -57,30 +57,59 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.grey[900],
           child: Column(
             children: [
-              // logo
-              DrawerHeader(child: Image.asset(
-                'assets/images/nike.png',
-                color: Colors.white,
+              Column(
+                children: [
+                  // logo
+                  DrawerHeader(child: Image.asset(
+                    'assets/images/nike.png',
+                    color: Colors.white,
+                  ),
                 ),
-              ),
-
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 25.0),
                 child: Divider(color: Colors.grey[800],
                 ),
               ),
-
               // other pages
               const Padding(
-                padding: EdgeInsets.only( left: 25.0),
+                padding: EdgeInsets.only(left: 25.0),
                 child: ListTile(
-                  leading: Icon(Icons.home, color: Colors.white,),
+                  leading: Icon(Icons.home, 
+                  color: Colors.white,
+                  ),
                   title: Text(
                     'Home', 
                     style: TextStyle(
                       color: Colors.white),
                       ),
                 ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 25.0),
+                child: ListTile(
+                  leading: Icon(
+                    Icons.info,
+                    color: Colors.white,
+                    ),
+                  title: Text(
+                    'About', 
+                    style: TextStyle(
+                      color: Colors.white),
+                      ),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(left: 25.0, bottom: 25.0, top: 389),
+                child: ListTile(
+                  leading: Icon(Icons.logout, color: Colors.white,),
+                  title: Text(
+                    'Lougout', 
+                    style: TextStyle(
+                      color: Colors.white),
+                      ),
+                ),
+              ),
+              ],
               ),
             ],
           ),
