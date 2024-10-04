@@ -12,6 +12,19 @@ class ShopPage extends StatefulWidget {
 }
 
 class _ShopPageState extends State<ShopPage> {
+
+  // add shoe to cart
+  void addShoeToCart(Shoe shoe) {
+    Provider.of<Cart>(context, listen: false).addItemToCart(shoe);
+
+    // alert the user, shoe successfully added
+    showDialog(context: context, builder: (context) => AlertDialog(
+      title: Text('Produto adicionado ao carrinho!',),
+      content: Text('Veja seu carrinho',),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Consumer<Cart>(
@@ -28,7 +41,7 @@ class _ShopPageState extends State<ShopPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Search',
+                  'Pesquisar',
                   style: TextStyle(
                     color: Colors.grey,
                     ),
@@ -55,19 +68,19 @@ class _ShopPageState extends State<ShopPage> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  'Hot Picks 🔥',
+                  'Em Destaque 🔥',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 24,
                   ),
                   ),
                 Text(
-                  'See All',
+                  'Ver Todos',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     color: Colors.blue,
                   ),
-                  ),
+                ),
               ],
             ),
           ),
@@ -85,6 +98,7 @@ class _ShopPageState extends State<ShopPage> {
                 //return the shoe
                 return ShoeTile(
                   shoe: shoe,
+                  onTap: () => addShoeToCart(shoe),
                 );
               },
             ),

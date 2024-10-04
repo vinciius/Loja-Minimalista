@@ -3,7 +3,8 @@ import 'package:sneakerv1/models/shoe.dart';
 
 class ShoeTile extends StatelessWidget {
   Shoe shoe;
-  ShoeTile({super.key, required this.shoe});
+  void Function()? onTap;
+  ShoeTile({super.key, required this.shoe, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +20,14 @@ class ShoeTile extends StatelessWidget {
         children: [
           // shoe picture
           Container(
-            padding: EdgeInsets.all(16),
+            width: double.infinity,
+            height: 180,
+            padding: EdgeInsets.all(40),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
                 shoe.imagePath,
+                fit: BoxFit.fill,
                 ),
               ),
           ),
@@ -66,18 +70,21 @@ class ShoeTile extends StatelessWidget {
                   ],
                 ),
                 // add button
-                Container(
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      bottomRight: Radius.circular(8)
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    padding: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Colors.black,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8),
+                        bottomRight: Radius.circular(8)
+                        ),
                       ),
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.white,
                     ),
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.white,
                   ),
                 ),
               ],
