@@ -15,6 +15,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   google_nav_bar: ^5.0.6
+  provider: ^6.1.2
   
   flutter_localizations:
     sdk: flutter
@@ -35,3 +36,6 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/nike.png
     - assets/images/Air Jordan 1.png
+    - assets/images/ZoomFreak.png
+    - assets/images/KDTrey.png
+    - assets/images/Kyrie6.png

@@ -18,10 +18,15 @@ class ShoeTile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // shoe picture
-          ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.asset(shoe.imagePath)
-            ),
+          Container(
+            padding: EdgeInsets.all(16),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(
+                shoe.imagePath,
+                ),
+              ),
+          ),
           // description
           Container(
             margin: EdgeInsets.all(12),
@@ -33,58 +38,51 @@ class ShoeTile extends StatelessWidget {
             ),
           ),
           // price + details
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // shoe name
-                  Container(
-                    padding: EdgeInsets.only(left: 8),
-                    child: Text(shoe.name)),
-                  // shoe price
-                  Container(
-                    padding: EdgeInsets.all(8),
-                    child: Text(shoe.price)),
-                ],
-              ),
-              // sizedbox
-              SizedBox(height: 20, width: 65,),
+          Padding(
+            padding: const EdgeInsets.only(left: 25.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // shoe name
+                    Text(
+                      shoe.name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                        ),
+                      ),
 
-              // minus button
-              Container(
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(8),
-                    bottomLeft: Radius.circular(8)
-                    ),
-                  ),
-                child: Icon(
-                  Icons.remove,
-                  color: Colors.white,
+                    // shoe price
+                    Text(
+                      '\$${shoe.price}',
+                      style: TextStyle(
+                        color: Colors.grey
+                        ),
+                      ),
+                  ],
                 ),
-              ),
-
-              // add button
-              Container(
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(8),
-                    bottomRight: Radius.circular(8)
+                // add button
+                Container(
+                  padding: EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(8),
+                      bottomRight: Radius.circular(8)
+                      ),
                     ),
+                  child: Icon(
+                    Icons.add,
+                    color: Colors.white,
                   ),
-                child: Icon(
-                  Icons.add,
-                  color: Colors.white,
                 ),
-              ),
-            ],
-          )
+              ],
+            ),
+          ),
           // button to add to cart
         ],
       ),
