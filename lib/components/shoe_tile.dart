@@ -12,7 +12,7 @@ class ShoeTile extends StatelessWidget {
       margin: const EdgeInsets.only(left: 25),
       width: 280,
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -34,12 +34,7 @@ class ShoeTile extends StatelessWidget {
           // description
           Container(
             margin: EdgeInsets.all(12),
-            child: Text(
-              shoe.description,
-              style: TextStyle(
-                color: Colors.grey[600],
-              ),
-            ),
+            child: Text(shoe.description),
           ),
           // price + details
           Padding(
@@ -64,7 +59,7 @@ class ShoeTile extends StatelessWidget {
                     Text(
                       '\$${shoe.price}',
                       style: TextStyle(
-                        color: Colors.grey
+                        color: Colors.green,
                         ),
                       ),
                   ],
@@ -75,7 +70,7 @@ class ShoeTile extends StatelessWidget {
                   child: Container(
                     padding: EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: Colors.black,
+                      color: Theme.of(context).colorScheme.inversePrimary,
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(8),
                         bottomRight: Radius.circular(8)
@@ -83,7 +78,7 @@ class ShoeTile extends StatelessWidget {
                       ),
                     child: Icon(
                       Icons.add,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                   ),
                 ),

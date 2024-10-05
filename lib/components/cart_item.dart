@@ -26,12 +26,22 @@ class _CartItemState extends State<CartItem> {
       ),
       margin: EdgeInsets.only(bottom: 10),
       child: ListTile(
-        leading: Image.asset(widget.shoe.imagePath),
-        title: Text(widget.shoe.name),
-        subtitle: Text(widget.shoe.price),
+        leading: SizedBox(
+          height: 50,
+          width: 100,
+          child: Image.asset(widget.shoe.imagePath)),
+        title: Text(
+          widget.shoe.name,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            ),
+          ),
+        subtitle: Text('\$${widget.shoe.price}'),
         trailing: IconButton(
           onPressed: removeItemFromCart, 
-          icon: Icon(Icons.delete),
+          icon: Icon(
+            Icons.delete,
+            ),
         ),
       ),
     );

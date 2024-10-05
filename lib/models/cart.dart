@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:sneakerv1/models/shoe.dart';
 
 class Cart extends ChangeNotifier {
-  // list of shoes for sale
+  // lista de tênis à venda
   List<Shoe> shoeShop = [
     Shoe(
       name: 'Zoom FREAK', 
       price: '236', 
       imagePath: 'assets/images/ZoomFreak.png', 
-      description: 'Excel in fast-paced, aggressive play.'
+      description: 'Se destaque em jogadas rápidas e agressivas.'
       ),
 
     Shoe(
       name: 'Air Jordan 1',
       price: '220',
-      description: 'Michael Jordans debut signature shoe.',
+      description: 'Tênis marca registrada da estreia de Michael Jordan.',
       imagePath: 'assets/images/Air Jordan 1.png',
       ),
 
@@ -22,34 +22,37 @@ class Cart extends ChangeNotifier {
       name: 'KD Treys', 
       price: '240', 
       imagePath: 'assets/images/KDTrey.png', 
-      description: 'A balance of agility, stability, and responsiveness.',
+      description: 'Um equilíbrio entre agilidade, estabilidade e capacidade de resposta.',
       ),
 
     Shoe(
       name: 'Kyrie 6', 
       price: '190', 
       imagePath: 'assets/images/Kyrie6.png',   
-      description: 'Control, quick cuts, and all-around agility.'),
+      description: 'Controle, cortes rápidos e agilidade geral.'),
   ];
 
-  // list of items in user cart
+  // lista de itens no carrinho do usuário
   List<Shoe> userCart = [];
 
-  // get list of shoes for sale
+  // obter lista de tênis à venda
   List<Shoe> getShoeList() {
     return shoeShop;
   }
-  // get cart
+
+  // obter carrinho
   List<Shoe> getUserCart() {
     return userCart;
   }
-  // add items to cart
-  void addItemToCart (Shoe shoe) {
+
+  // adicionar itens ao carrinho
+  void addItemToCart(Shoe shoe) {
     userCart.add(shoe);
     notifyListeners();
   }
-  // remove item from cart
-  void removeItemFromCart (Shoe shoe) {
+
+  // remover item do carrinho
+  void removeItemFromCart(Shoe shoe) {
     userCart.remove(shoe);
     notifyListeners();
   }
