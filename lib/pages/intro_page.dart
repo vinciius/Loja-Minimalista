@@ -8,7 +8,7 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -24,31 +24,30 @@ class IntroPage extends StatelessWidget {
               ),
           
               const SizedBox(height: 20,),
-          
-              // title
+
+              // título
               const Text(
-                "Just do it.",
+                "Apenas faça.",
                 style: TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               
-              const SizedBox(height: 24,), 
-          
-              // sub title
+              const SizedBox(height: 24,),
+
+              // subtítulo
               const Text(
-                'Brand new sneakers and custom kicks made with premium quality',
+                'Tênis novos e personalizados feitos com qualidade premium',
                 style: TextStyle(
                   fontSize: 20,
-                  color: Colors.grey,
                 ),
                 textAlign: TextAlign.center,
               ),
 
               const SizedBox(height: 48,),
 
-              // start now button
+              // botão "Comece agora"
               GestureDetector(
                 onTap: () => Navigator.push(
                   context,
@@ -56,15 +55,15 @@ class IntroPage extends StatelessWidget {
                   ),
                 ),
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.grey[800],
-                  borderRadius: BorderRadius.circular(12),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                    borderRadius: BorderRadius.circular(12),
                   ),
                   padding: const EdgeInsets.all(25),
                   child: const Center(
                     child: Text(
-                      'Shop Now',
+                      'Compre Agora',
                       style: TextStyle(
-                        color: Colors.white,
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
