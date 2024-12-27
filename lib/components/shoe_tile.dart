@@ -4,7 +4,8 @@ import 'package:sneakerv1/models/shoe.dart';
 // ignore: must_be_immutable
 class ShoeTile extends StatelessWidget {
   Shoe shoe;
-  ShoeTile({super.key, required this.shoe});
+  void Function()? onTap;
+  ShoeTile({super.key, required this.shoe, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class ShoeTile extends StatelessWidget {
       margin: const EdgeInsets.only(left: 25),
       width: 280,
       decoration: BoxDecoration(
-        color: Colors.grey[100],
+        color: Theme.of(context).colorScheme.primary,
         borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
@@ -20,23 +21,21 @@ class ShoeTile extends StatelessWidget {
         children: [
           // shoe picture
           Container(
-            padding: EdgeInsets.all(16),
+            width: double.infinity,
+            height: 180,
+            padding: EdgeInsets.all(40),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
                 shoe.imagePath,
+                fit: BoxFit.fill,
                 ),
               ),
           ),
           // description
           Container(
             margin: EdgeInsets.all(12),
-            child: Text(
-              shoe.description,
-              style: TextStyle(
-                color: Colors.grey[600],
-              ),
-            ),
+            child: Text(shoe.description),
           ),
           // price + details
           Padding(
@@ -61,24 +60,27 @@ class ShoeTile extends StatelessWidget {
                     Text(
                       '\$${shoe.price}',
                       style: TextStyle(
-                        color: Colors.grey
+                        color: Colors.green,
                         ),
                       ),
                   ],
                 ),
                 // add button
-                Container(
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: Colors.black,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      bottomRight: Radius.circular(8)
+                GestureDetector(
+                  onTap: onTap,
+                  child: Container(
+                    padding: EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(8),
+                        bottomRight: Radius.circular(8)
+                        ),
                       ),
+                    child: Icon(
+                      Icons.add,
+                      color: Colors.black,
                     ),
-                  child: Icon(
-                    Icons.add,
-                    color: Colors.white,
                   ),
                 ),
               ],
